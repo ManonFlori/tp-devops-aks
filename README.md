@@ -1,6 +1,6 @@
 # TP DevOps AKS 
   
-Description : à compléter 
+Description : TP DevOps déployé sur Azure AKS
   
 ## Lancer l'application en local 
   
