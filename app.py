@@ -3,6 +3,7 @@ import os
 import socket 
   
 from flask import Flask, jsonify 
+from calendrier import est_bissextile
   
 app = Flask(__name__) 
   
@@ -26,7 +27,11 @@ def health():
 def ready(): 
     """Sonde de disponibilité (readiness).""" 
     return jsonify(status="ready") 
-  
+
+@app.get("/bissextile/<int:annee>")
+def bissextile(annee):
+    """Indique si une année est bissextile."""
+    return jsonify(annee=annee, bissextile=est_bissextile(annee))
   
 if __name__ == "__main__": 
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", "8080"))) 
